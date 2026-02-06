@@ -1,1 +1,20 @@
 @import "tailwindcss";
+
+/* Fonts : */
+@font-face {
+    font-family: "Dana";
+    src: url("../../public/fonts/DanaFaNum-Regular.woff2");
+    font-display: swap;
+}
+
+/* Custom Variables : */
+@theme {
+    --font-dana: "Dana";
+
+    --color-text-navbar: #4D545B;
+}
+
+/* CSS Reset : */
+.container {
+    @apply mx-auto
+}

@@ -1,5 +1,6 @@
 import "./globals.css";
 import {ReactNode} from "react";
+import Navbar from "@/components/globals/Navbar";
 
 export default function RootLayout({
                                        children,
@@ -8,7 +9,8 @@ export default function RootLayout({
 }>) {
     return (
         <html>
-        <body>
+        <body dir="rtl" className="font-dana">
+        <Navbar/>
         {children}
         </body>
         </html>

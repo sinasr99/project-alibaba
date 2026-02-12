@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+/* CSS Reset */
+input {
+    outline: none;
+}
+
 /* Fonts : */
 @font-face {
     font-family: "Dana";
@@ -12,9 +17,22 @@
     --font-dana: "Dana";
 
     --color-text-navbar: #4D545B;
+    --color-text-sub-item: rgba(75, 82, 89, 1);
+    --color-custom-white: #f6f5f5;
+
+    /* modal color */
+    --color-modal-color: rgba(147, 147, 147, 0.5);
+
+    /* input color */
+    --color-input: #9AA2AA;
 }
 
 /* CSS Reset : */
 .container {
     @apply mx-auto
+}
+
+/* Helper Classes : */
+.box-shadow-alibaba {
+    box-shadow: 0 0 10px rgba(75, 82, 89, 0.2);
 }

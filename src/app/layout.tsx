@@ -1,4 +1,5 @@
 import "./globals.css";
+import "@/css-modules/loader-btn.css"
 import {ReactNode} from "react";
 import Navbar from "@/components/globals/Navbar";
 import {ModalContextProvider} from "@/context/ModalContext";

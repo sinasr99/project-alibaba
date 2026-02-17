@@ -6,14 +6,14 @@ import Link from "next/dist/client/link";
 import {FaRegQuestionCircle, FaRegUser} from "react-icons/fa";
 import {useContext} from "react";
 import {ModalContext} from "@/context/ModalContext";
-import AuthModal from "@/components/home/AuthModal";
+import AuthModalContent from "@/components/home/AuthModalContent";
 
 export default function Navbar() {
     const {showModal} = useContext(ModalContext)
 
     const showLoginModal = () => {
         showModal(
-            <AuthModal/>,
+            <AuthModalContent/>,
             600,
             500
         )

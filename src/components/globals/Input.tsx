@@ -1,14 +1,16 @@
 "use client"
 
-import {Dispatch, FC, SetStateAction, useRef, useState} from "react";
-import {checkPhone} from "@/validations/checkPhone";
+import {Dispatch, FC, SetStateAction, useEffect, useRef, useState} from "react";
+import {checkInputs} from "@/validations/checkInputs";
 
 type InputProps = {
     value: string,
-    setValue: Dispatch<SetStateAction<string>>
+    setValue: Dispatch<SetStateAction<string>>,
+    hasError: boolean,
+    setHasError: Dispatch<SetStateAction<boolean>>
 }
 
-const Input: FC<InputProps> = ({setValue, value}) => {
+const Input: FC<InputProps> = ({setValue, value, hasError, setHasError}) => {
     const [isFocused, setIsFocused] = useState(false)
 
     const inputRef = useRef<HTMLInputElement | null>(null)
@@ -17,8 +19,17 @@ const Input: FC<InputProps> = ({setValue, value}) => {
         inputRef.current?.focus()
     }
 
+    useEffect(() => {
+        console.log("!checkInputs(value) => ", !checkInputs(value))
+        setHasError(!checkInputs(value))
+    }, [value])
+
+    useEffect(() => {
+        console.log("has error => ", hasError)
+    }, [hasError]);
+
     return (
-        <div className="input-wrapper relative w-[326px] h-12 p-2 rounded-lg border-solid border-input border-[1px]">
+        <div className={`input-wrapper relative w-[326px] h-12 p-2 rounded-lg border-solid ${isFocused ? "border-black" : "border-input"} border-[1px]`}>
             <input
                 value={value}
                 onChange={event => setValue(event.target.value)}
@@ -40,7 +51,7 @@ const Input: FC<InputProps> = ({setValue, value}) => {
             {
                 value.length
                     ?
-                    checkPhone(value)
+                    hasError
                         ?
                         null
                         : <span

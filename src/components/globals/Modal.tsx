@@ -22,7 +22,7 @@ const Modal: FC = () => {
                 }}
                 className={`
             modal bg-white rounded-lg p-4 fixed top-0 right-0 left-0 bottom-0 m-auto
-             ${isShow ? "visible opacity-100 translate-y-0" : "invisible opacity-0 -translate-y-4"}
+             ${isShow ? "visible opacity-100 translate-y-0" : "invisible opacity-0 translate-y-4"}
              transition-all ease-in-out duration-200
             `}>
                 <div className="modal-header flex items-center justify-end">
